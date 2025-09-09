@@ -1,0 +1,16 @@
+/* src/App.css */
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.feedback-message {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #dc3545; /* Bootstrap's danger color */
+}

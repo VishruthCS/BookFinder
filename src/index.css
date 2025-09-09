@@ -1,0 +1,65 @@
+/* src/index.css */
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Applying the main background color from your palette */
+  background-color: #101115; 
+  /* Setting default text color for contrast */
+  color: hsl(180, 22%, 81%); 
+}
+
+/* Ensure the root element also matches */
+#root {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Adjusting Bootstrap's default dark background if needed */
+.bg-dark {
+    background-color: #1a535c !important; /* Force dark backgrounds to your dark teal */
+}
+
+/* You might want to adjust card backgrounds too */
+.card {
+    background-color: rgba(72, 93, 93, 0.707)!important; /* Use a lighter teal for cards */
+    color: #14110e; /* Dark text on lighter card */
+    border: none; /* Remove default borders */
+}
+
+/* Adjust text in cards if needed */
+.card-title {
+    color: #152a2d; /* Dark text for titles */
+}
+
+.card-text small {
+    color: #070707 !important; /* Slightly darker text for muted elements */
+}
+
+/* Adjusting button colors to fit the theme */
+.btn-primary {
+    background-color: #ff6b6b; /* Use your red for primary button */
+    border-color: #ff6b6b;
+    color: #04070a;
+}
+.btn-primary:hover {
+    background-color: #ffe66d; /* Yellow on hover */
+    border-color: #ffe66d;
+    color: #1a535c;
+}
+
+/* Adjust input field styles */
+.form-control {
+    background-color: #0c0e0c; /* Light background for input */
+    color: #1a535c; /* Dark text for input */
+    border-color: #1a535c;
+}
+
+.form-control::placeholder {
+    color: #666; /* Adjust placeholder color */
+}

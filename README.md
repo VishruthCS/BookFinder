@@ -7,7 +7,7 @@ or author, or browse through popular categories to find their next read.
 The primary user persona, "Alex," is a college student who needs a quick
 and efficient way to look up book information.
 
-✨ **Live Demo** \[https://book-finder-kappa-five.vercel.app]
+✨ **Live Demo** \[https://book-finder-kappa-five.vercel.app\]
 
 ## Features
 

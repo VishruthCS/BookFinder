@@ -7,8 +7,7 @@ or author, or browse through popular categories to find their next read.
 The primary user persona, "Alex," is a college student who needs a quick
 and efficient way to look up book information.
 
-✨ **Live Demo** \[Link to your deployed application on CodeSandbox,
-StackBlitz, or another service\]
+✨ **Live Demo** \[https://book-finder-kappa-five.vercel.app]
 
 ## Features
 
@@ -47,7 +46,7 @@ You need to have Node.js and npm installed on your machine.
 Clone the repository:
 
 ``` bash
-git clone [your-repository-url]
+git clone [[(https://github.com/VishruthCS/BookFinder.git)]]
 ```
 
 Navigate to the project directory:

@@ -1,16 +1,19 @@
 /* src/App.css */
 
+/* Grid layout for displaying book results */
 .results-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Responsive columns */
+  gap: 1.5rem; /* Space between grid items */
 }
 
+/* Message shown when no results are found */
 .feedback-message {
-  margin-top: 2rem;
-  font-size: 1.2rem;
+  margin-top: 2rem;  /* Add space above the message */
+  font-size: 1.2rem; /* Slightly larger font for readability */
 }
 
+/* Error message styling */
 .error {
-  color: #dc3545; /* Bootstrap's danger color */
+  color: #dc3545; /* Bootstrap's danger (red) color */
 }

@@ -1,65 +1,67 @@
-/* src/index.css */
 
+/* Global body styles */
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  /* Applying the main background color from your palette */
+  place-items: center; /* Centers content both vertically and horizontally */
+  min-width: 320px; /* Ensures the page doesn’t shrink too much */
+  min-height: 100vh; /* Full viewport height */
+  /* Applying the main background color from your chosen palette */
   background-color: #101115; 
-  /* Setting default text color for contrast */
+  /* Default text color to maintain contrast against dark background */
   color: hsl(180, 22%, 81%); 
 }
 
-/* Ensure the root element also matches */
+/* Root container styles */
 #root {
   width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  margin: 0 auto; /* Center content horizontally */
+  padding: 2rem;  /* Spacing around content */
+  text-align: center; /* Center-align all text */
 }
 
-/* Adjusting Bootstrap's default dark background if needed */
+/* Override Bootstrap’s default dark background */
 .bg-dark {
-    background-color: #1a535c !important; /* Force dark backgrounds to your dark teal */
+    background-color: #1a535c !important; /* Replace with custom dark teal */
 }
 
-/* You might want to adjust card backgrounds too */
+/* Card styles (Bootstrap cards) */
 .card {
-    background-color: rgba(72, 93, 93, 0.707)!important; /* Use a lighter teal for cards */
-    color: #14110e; /* Dark text on lighter card */
-    border: none; /* Remove default borders */
+    background-color: rgba(72, 93, 93, 0.707)!important; /* Semi-transparent teal */
+    color: #14110e; /* Dark text for readability */
+    border: none; /* Remove default card border */
 }
 
-/* Adjust text in cards if needed */
+/* Card title styles */
 .card-title {
-    color: #152a2d; /* Dark text for titles */
+    color: #152a2d; /* Slightly darker shade for titles */
 }
 
+/* Card small text styles */
 .card-text small {
-    color: #070707 !important; /* Slightly darker text for muted elements */
+    color: #070707 !important; /* Darker text for subtle/muted details */
 }
 
-/* Adjusting button colors to fit the theme */
+/* Primary button styling */
 .btn-primary {
-    background-color: #ff6b6b; /* Use your red for primary button */
-    border-color: #ff6b6b;
-    color: #04070a;
+    background-color: #dd73cf; /* Custom red color for buttons */
+    border-color: #f6add7;     /* Match border to button background */
+    color: #04070a;            /* Dark text for contrast */
 }
 .btn-primary:hover {
-    background-color: #ffe66d; /* Yellow on hover */
-    border-color: #ffe66d;
-    color: #1a535c;
+    background-color: #ffe66d; /* Change to yellow on hover */
+    border-color: #ffe66d;     /* Match border on hover */
+    color: #1a535c;            /* Teal text when hovered */
 }
 
-/* Adjust input field styles */
+/* Input field customization */
 .form-control {
-    background-color: #0c0e0c; /* Light background for input */
-    color: #1a535c; /* Dark text for input */
-    border-color: #1a535c;
+    background-color: #0c0e0c; /* Dark background for input fields */
+    color: #1a535c;           /* Teal text for input */
+    border-color: #1a535c;    /* Teal border for consistency */
 }
 
+/* Placeholder text styles */
 .form-control::placeholder {
-    color: #666; /* Adjust placeholder color */
+    color: #666; /* Lighter gray to differentiate from actual text */
 }

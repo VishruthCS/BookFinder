@@ -1,77 +1,92 @@
 import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import ResultsGrid from './components/ResultsGrid';
-import CategoryFilter from './components/CategoryFilter'; // Import the new component
+import CategoryFilter from './components/CategoryFilter'; // Import the category filter component
 import Container from 'react-bootstrap/Container';
 import './App.css';
 
-// Define the categories we want to show
+// Define the list of categories that will appear as filter buttons
 const categories = ['Classic Literature', 'Science Fiction', 'Fantasy', 'Mystery', 'History', 'Romance'];
 
 function App() {
+  // State to hold fetched books
   const [books, setBooks] = useState([]);
+  // State to show loading spinner while fetching data
   const [isLoading, setIsLoading] = useState(false);
+  // State to store any error messages
   const [error, setError] = useState(null);
+  // Track whether a search or fetch has been performed
   const [hasSearched, setHasSearched] = useState(true);
-  const [activeCategory, setActiveCategory] = useState(categories[0]); // Keep track of the active category
+  // Track the currently active category (default = first category)
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
 
-  // Fetch books based on the active category when the app loads
+  // useEffect runs once when the app first loads
+  // It fetches books for the default active category
   useEffect(() => {
     fetchBooks(activeCategory, 'subject');
-  }, []); // Runs only once on mount
+  }, []); // Empty dependency array = run only once on mount
 
-  // Generic function to fetch books by text query or subject
+  // Generic function to fetch books from Open Library API
+  // type can be "q" (text search) or "subject" (category search)
   const fetchBooks = async (query, type) => {
     setHasSearched(true);
-    setIsLoading(true);
-    setError(null);
-    setBooks([]);
+    setIsLoading(true);   // Show loading state
+    setError(null);       // Reset any previous errors
+    setBooks([]);         // Clear old results
 
-    // The API parameter changes based on the type of search
+    // Choose the correct API parameter based on type
     const searchParam = type === 'subject' ? `subject=${query}` : `q=${query}`;
     const apiUrl = `https://openlibrary.org/search.json?${searchParam}&limit=20`;
 
     try {
+      // Fetch data from Open Library API
       const response = await fetch(apiUrl);
       if (!response.ok) {
         throw new Error('Something went wrong. Please try again.');
       }
+      // Parse the JSON response
       const data = await response.json();
-      setBooks(data.docs);
+      setBooks(data.docs); // Update state with book results
     } catch (err) {
-      setError(err.message);
+      setError(err.message); // Store error message if fetch fails
     } finally {
-      setIsLoading(false);
+      setIsLoading(false);   // Stop loading spinner
     }
   };
 
-  // Handler for the text-based search bar
+  // Handler for text search (from SearchBar component)
   const handleSearch = (searchTerm) => {
-    setActiveCategory(''); // De-select any active category
-    fetchBooks(searchTerm, 'q');
+    setActiveCategory(''); // Clear the active category when doing a manual search
+    fetchBooks(searchTerm, 'q'); // Fetch books by query
   };
 
-  // Handler for category button clicks
+  // Handler for selecting a category (from CategoryFilter component)
   const handleCategorySelect = (category) => {
-    setActiveCategory(category);
-    fetchBooks(category, 'subject');
+    setActiveCategory(category);     // Update the active category
+    fetchBooks(category, 'subject'); // Fetch books from that category
   };
 
+  // JSX structure of the app
   return (
     <Container className="my-4 text-center">
       <header>
-        <h1></h1>
-        <p className="lead">📚 Book Finder for Alex</p>
+        <h1>📚 Book Finder</h1>
+        <p className="lead"></p>
       </header>
       <main>
-        
+        {/* Search input box */}
         <SearchBar onSearch={handleSearch} />
-        <CategoryFilter
-          categories={categories}
-          activeCategory={activeCategory}
-          onSelectCategory={handleCategorySelect}
-        />
-        <p>Most Famous Book in the {activeCategory} Category</p>
+        
+        {/* Show category filter buttons only if a category is active */}
+        {activeCategory && (
+          <CategoryFilter
+            categories={categories}
+            activeCategory={activeCategory}
+            onSelectCategory={handleCategorySelect}
+          />
+        )}
+
+        {/* Display results grid with loading, error, and no-results handling */}
         <ResultsGrid 
             books={books} 
             isLoading={isLoading} 
